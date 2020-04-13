@@ -1,0 +1,20 @@
+<h1>Product Sellers</h1>
+
+	<% @sellers.each do |seller| %>
+	<div class="container">
+		<ul>
+			<li>
+			<%= link_to seller.email, seller_path(seller) %> 
+			</li>
+			<li><small><%= pluralize(seller.products.count, "products") if seller.products %></small></li>
+			<% if seller_signed_in? and current_seller.admin? %>
+				<li><%= link_to "Delete seller", seller_path(seller), method: :delete,
+				data: {confirm: "Are you sure you want to delete the seller and all their products?"} %> 
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<%= will_paginate @sellers%>
+</div>
+</div>

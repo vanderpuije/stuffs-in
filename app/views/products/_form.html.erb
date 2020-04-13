@@ -1,0 +1,24 @@
+<%= form_with(model: product, local: true) do |form| %>
+
+  <%= render 'shared/errors', obj: @product %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :product_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :product_description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, id: :product_price %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>
+

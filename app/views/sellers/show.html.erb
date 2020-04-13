@@ -1,0 +1,9 @@
+<div class="container">
+	<h2><%= @seller.email %></h2>
+
+	<%= render 'products/product', obj: @seller_products%>
+
+	<div class="center">
+		<%= will_paginate @seller_products %>
+	</div>
+</div>

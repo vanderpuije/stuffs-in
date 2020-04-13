@@ -1,0 +1,13 @@
+
+<div class="center jumbotron">
+	<h1>Welcome to Stuffs-In</h1> <br>
+   	<h2>get a view of products on sale on market</h2>
+
+   	<% if seller_signed_in? %>
+   		<%= link_to "Sell products on market", new_product_path %> |
+   	<% end %>
+	<%= link_to "All products on market", products_path %>
+
+</div>
+
+
