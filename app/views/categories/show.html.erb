@@ -1,2 +1,20 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+
+
+<h1 align="center"><%= "Category:" + @category.name %></h1>
+<div align="center">
+	<% if seller_signed_in? and current_seller.admin? %>
+	<div class="row">
+	<span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+	</div>
+<% end %>
+	<%= will_paginate @category_products %>
+</div>
+
+
+<div class="container">
+<%= render 'products/product', obj: @category_products %>
+<div align="center">
+	<%= will_paginate @category_products %>
+ </div>
+</div>
+

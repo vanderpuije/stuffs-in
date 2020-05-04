@@ -15,6 +15,11 @@
   <%= @product.price %>
 </p>
 
+<% if @product.categories.any? %>
+	<strong>Categories: <%= @product.categories %></strong>
+
+<% end %>
+
 <% if seller_signed_in? && (current_seller == @product.seller || current_seller.admin?) %>
 		<%= link_to 'Edit', edit_product_path(@product) %> |
 		<%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
