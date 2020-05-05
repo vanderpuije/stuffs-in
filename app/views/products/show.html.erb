@@ -16,8 +16,7 @@
 </p>
 
 <% if @product.categories.any? %>
-	<strong>Categories: <%= @product.categories %></strong>
-
+	<strong>Categories: <%=  render @product.categories %></strong>
 <% end %>
 
 <% if seller_signed_in? && (current_seller == @product.seller || current_seller.admin?) %>
@@ -25,3 +24,4 @@
 		<%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <%= link_to 'Back', products_path %>
+

@@ -1,17 +1,38 @@
 <nav>
 	<h3>nav contents </h3>
 
+
 	<% if current_seller %>
 			<%= link_to('Log out', destroy_seller_session_path, method: :delete) %>  |
-			<%= link_to "My Profile", edit_registration_path(current_seller) %>  |
-			<%= link_to "Homepage", root_path %>  
-			  | <%= "Admin Profile" if current_seller.admin? %> 
+			<%= link_to "My Profile", edit_registration_path(current_seller) %>  | 
+			<%= "Admin Profile" if current_seller.admin? %> 
 		<% else %>
 			<%= link_to 'Log in', new_seller_session_path %>  |
-			<%= link_to 'Sign up', new_seller_registration_path %>  |
-			<%= link_to 'Sellers', sellers_path %> 
+			<%= link_to 'Sign up', new_seller_registration_path %>  |	
 	<% end %>
+		<%= link_to 'Sellers', sellers_path %> 	|
+		<%= link_to "Homepage", root_path %> 
+
+	<ul>
+	   <li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+          <li><%= link_to "All Categories", categories_path %></li>
+
+          <% Category.all.each do |category|   %>
+          <li><%= link_to category.name, category_path(category) %></li>
+          <% end %>
+          <% if seller_signed_in? and current_seller.admin? %>
+			          <li role="separator" class="divider"></li>
+			          <li><%= link_to "Create New Category", new_category_path  %></li>
+			 <% end %>
+         </ul>
+	  </li>
+	</ul>
 			
+
+
+
 	
 
 

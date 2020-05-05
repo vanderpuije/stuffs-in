@@ -24,7 +24,7 @@
         <% end %>
 
         <td><%= truncate(product.description, length: 100) %></td>
-        <td><%= product.price %></td>
+        <td> <%= product.price %></td>
         <td><%= product.seller.email %>, <%= time_ago_in_words(product.created_at) %> ago, last updated: <%= time_ago_in_words(product.updated_at) %>  ago</td>
         
         <td><%= link_to 'Show', product %></td>
@@ -41,3 +41,7 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+<div align="center">
+  <%= will_paginate %>
+</div>
+

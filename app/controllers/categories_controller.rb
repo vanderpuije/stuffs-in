@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
+    @category = Category.new 
   end
 
   def create
@@ -46,7 +46,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @category_articles = @category.products.paginate(page: params[:page], per_page: 5)
+    @category_products = @category.products.paginate(page: params[:page], per_page: 5)
 
   end
 

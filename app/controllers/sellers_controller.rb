@@ -11,7 +11,7 @@ class SellersController < ApplicationController
 	end 
 
 	def destroy
-		@seller = User.find(params[:id])
+		@seller = Seller.find(params[:id])
 		@seller.destroy
 		flash[:danger] = "Seller and all products created by the seller have been deleted"
 		redirect_to sellers_path
