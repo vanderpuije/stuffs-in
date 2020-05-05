@@ -26,6 +26,7 @@ gem 'bootstrap-will_paginate'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'twitter-bootstrap-rails'
 
 
 

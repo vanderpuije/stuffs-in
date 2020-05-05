@@ -1,17 +1,7 @@
 
 <%= form_for @category do |f| %>
-    <% if @category.errors.any? %>
-     
-                <h3><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h3>
-        
-            <div class="panel-body">
-              <ul>
-              <% @category.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ul>
-            </div>
-    <% end %> 
+  
+    <%= render 'shared/errors', obj: @category %>
 
 
     <%= f.label :name %>
